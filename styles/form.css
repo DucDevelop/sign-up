@@ -3,6 +3,8 @@
     src: url("../assets/fonts/Norse-Bold.otf") format("opentype");
 }
 
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,18 +24,19 @@
     --img-max-height: 200px;
     --img-min-height: 100px;
     --img-height: 10vw;
+
+    --content-padding : 2rem;
+    --background-color-form: #fffffffa;
+    --background-color: #f5f5f5eb;
+    --text-font: system-ui, monospace, ui-sans-serif;
+    --button-color: rgba(57, 109, 57, 0.816);
 }
 
-h1 {
-    font-family: "Norse";
-    color: var(--color-heading);
-    font-size: var(--font-size-heading);
-}
 
 .background {
     border: 1px solid black;
     height: 100vh;
-    width: max(300px, 35vw);
+    width: clamp(300px, 40vw, 1400px);
     background: no-repeat url("../assets/background_image.jpg");
     background-position: 50% 0%;
     /* background-size: contain; */
@@ -42,11 +45,7 @@ h1 {
 
 main {
     display: flex;
-}
-
-
-.form-container {
-    flex-grow: 4;
+    flex-grow: 1;
 }
 
 .background > header {
@@ -63,9 +62,118 @@ main {
 
 .background h1 {
     font-size: clamp(var(--font-size-heading-min), var(--font-size-heading), var(--font-size-heading-max));
+    font-family: "Norse";
+    color: var(--color-heading);
+    font-size: var(--font-size-heading);
 }
 
 .logo {
     height: clamp(var(--img-min-height), var(--img-height), var(--img-max-height));
     flex-grow: 0;
+}
+
+body,
+main {
+    display: flex;
+}
+
+main {
+    flex-direction: column;
+    justify-content: stretch;
+    font-family: var(--text-font);
+}
+
+main > div {
+    flex-grow: 2;
+    background-color: var(--background-color);
+}
+
+main > div {
+    padding: var(--content-padding);
+}
+
+.form {
+    flex-grow: 1;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.description > div {
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    top: 5rem;
+
+}
+
+.description p {
+    max-width: 66ch;
+    margin-right: auto;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.form {
+    background-color: var(--background-color-form);
+    box-shadow: 5px 5px 3px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form > form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-row {
+    display: flex;
+    justify-content: start;
+    gap: 5rem;
+}
+
+.form-row > div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.6rem;
+    font-weight: bold;
+
+}
+
+input {
+    appearance: none;
+    width: 300px;
+    height: 1.5rem;
+    border: 1px solid rgba(200, 200, 200, 0.606);
+    border-radius: 2px;
+}
+
+button {
+    background-color: var(--button-color);
+    width: 250px;
+    text-align: center;
+    height: 2.5rem;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 1px 1px 3px black;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--button-color);
+    font-weight: bold;
 }
