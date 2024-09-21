@@ -3,6 +3,69 @@
     src: url("../assets/fonts/Norse-Bold.otf") format("opentype");
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    line-height: 1.5;
+    font-size: 16px;
+    --color-heading: #ffffff;
+    /* font header sizing */
+    --font-size-heading: calc(3.5vw + 1rem);
+    --font-size-heading-max: 10rem;
+    --font-size-heading-min: 3rem;
+    --header-height: 200px;
+    /* image responsive sizing */
+    --img-max-height: 200px;
+    --img-min-height: 100px;
+    --img-height: 10vw;
+}
+
 h1 {
     font-family: "Norse";
+    color: var(--color-heading);
+    font-size: var(--font-size-heading);
+}
+
+.background {
+    border: 1px solid black;
+    height: 100vh;
+    width: max(300px, 35vw);
+    background: no-repeat url("../assets/background_image.jpg");
+    background-position: 50% 0%;
+    /* background-size: contain; */
+    background-size: 100vh;
+}
+
+main {
+    display: flex;
+}
+
+
+.form-container {
+    flex-grow: 4;
+}
+
+.background > header {
+    display: flex;
+    height: var(--header-height);
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 10px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.636), rgba(0, 0, 0, 0.286));
+    position: relative;
+    top: 25%;
+}
+
+.background h1 {
+    font-size: clamp(var(--font-size-heading-min), var(--font-size-heading), var(--font-size-heading-max));
+}
+
+.logo {
+    height: clamp(var(--img-min-height), var(--img-height), var(--img-max-height));
+    flex-grow: 0;
 }
