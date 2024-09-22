@@ -34,7 +34,6 @@
 
 
 .background {
-    border: 1px solid black;
     height: 100vh;
     width: clamp(300px, 40vw, 1400px);
     background: no-repeat url("../assets/background_image.jpg");
@@ -131,6 +130,7 @@ main > div {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    color: rgba(98, 98, 98, 0.935);
 }
 
 .form-row {
@@ -153,9 +153,10 @@ label {
 input {
     appearance: none;
     width: 300px;
-    height: 1.5rem;
-    border: 1px solid rgba(200, 200, 200, 0.606);
+    height: 2rem;
+    border: 1px solid #E5E7EB;
     border-radius: 2px;
+    padding: 5px;
 }
 
 button {
@@ -170,10 +171,30 @@ button {
     box-shadow: 1px 1px 3px black;
     margin-top: 1rem;
     margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 a {
     text-decoration: none;
     color: var(--button-color);
     font-weight: bold;
+}
+
+input:invalid {
+    outline: 1px solid rgb(197, 35, 35);
+}
+
+input:invalid + p {
+    display: block;
+}
+
+.error-message {
+    color: rgb(197, 35, 35);
+    font-size: smaller;
+    display: none;
+}
+
+input:focus{
+    outline: 1px solid rgb(50, 117, 211);
+    box-shadow: 1px 1px 5px black;
 }
